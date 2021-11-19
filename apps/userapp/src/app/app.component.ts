@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nownthenfrontend-root',
+  selector: 'userapp-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
