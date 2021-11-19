@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "nownthenfrontend",
+            "prefix": "userapp",  // changed prefix name from org level to app level
             "style": "camelCase"
           }
         ],
@@ -21,10 +21,14 @@
           "error",
           {
             "type": "element",
-            "prefix": "nownthenfrontend",
+            "prefix": "userapp",    // changed prefix name from org level to app level
             "style": "kebab-case"
           }
-        ]
+        ],
+        //turn off eslint empty construtor rules, empty funtion rules, no lifecycle methods
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@angular-eslint/no-empty-lifecycle-method": "off"
       }
     },
     {
