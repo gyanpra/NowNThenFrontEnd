@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nownthenfrontend/ui": ["libs/ui/src/index.ts"]
+      "@nownthenfrontend/orders": ["libs/orders/src/index.ts"],
+      "@nownthenfrontend/products": ["libs/products/src/index.ts"],
+      "@nownthenfrontend/ui": ["libs/ui/src/index.ts"],
+      "@nownthenfrontend/users": ["libs/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
