@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,100;1,500&family=Mukta:wght@300&family=Roboto+Condensed:wght@300&display=swap');
+@import '../node_modules/primeicons/primeicons.css';
+@import '../node_modules/primeng/resources/themes/saga-purple/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+
+p{
+
+    color: black;
+    font-family: 'Mukta', sans-serif;
+    font-size: 24px;
+}
+
+body, .p-component{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
