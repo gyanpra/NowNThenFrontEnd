@@ -2,6 +2,8 @@
 @import '../node_modules/primeicons/primeicons.css';
 @import '../node_modules/primeng/resources/themes/saga-purple/theme.css';
 @import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeflex/primeflex.min.css';
+
 
 p{
 
@@ -15,12 +17,4 @@ body, .p-component{
 
 }
 
-a{
-    text-decoration: none;
-}
 
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
