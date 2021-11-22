@@ -1,0 +1,79 @@
+<p-toast></p-toast>
+<div class="admin-catogies">
+    <p-card [header]="editMode ? 'Edit Product':'Create Product'"
+        [subheader]="editMode ? 'Edit Existing Product':'Create a New Product'">
+        <div class="grid mb-2">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <button pButton type="button" icon="pi pi-plus" [label]="editMode ? 'Update':'Add'"
+                            (click)="onSubmit()" class="p-button-outlined"></button>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <button pButton type="button" icon="pi pi-times" label="Cancel" routerLink="/products"
+                            class="p-button-info"></button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <form [formGroup]="form">
+                <div class="formgrid grid">
+                    <div class="field col-4">
+                        <label for="name">Name</label>&nbsp;
+                        <input formControlName="name" id="name" type="text" class="inputfield w-full">
+                        <small class="p-error" *ngIf="productForm.name.invalid&&isSubmitted">Name is required</small>
+                    </div>
+                    <div class="field col-4">
+                        <label for="brand">Brand</label>&nbsp;
+                        <input formControlName="brand" id="brand" type="text" class="inputfield w-full">
+                        <small class="p-error" *ngIf="productForm.brand.invalid&&isSubmitted">Brand is required</small>
+                    </div>
+
+                    <div class="field col-4">
+                        <label for="price">Price</label>&nbsp;
+                        <input formControlName="price" id="price" type="number" class="inputfield w-full">
+                        <small class="p-error" *ngIf="productForm.price.invalid&&isSubmitted">Price is
+                            required</small>
+                    </div>
+                    <div class="field col-4">
+                        <label for="stock">Stock</label>&nbsp;
+                        <input formControlName="stock" id="stock" type="number" class="inputfield w-full">
+                        <small class="p-error" *ngIf="productForm.stock.invalid&&isSubmitted">Stock is
+                            required</small>
+                    </div>
+
+                    <div class="field col-4">
+                        <label for="isFeatured">Featured</label><br />
+                        <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
+                    </div>&nbsp; &nbsp; &nbsp;
+                    <div class="p-field p-col-4">
+                        <label for="category">category</label><br />
+                        <p-dropdown [options]="categories" formControlName="category" optionLabel="name"
+                            optionValue="id" [filter]="true" filterBy="name" [showClear]="true"
+                            placeholder="Select a Category&nbsp;&nbsp;&nbsp;&nbsp;"></p-dropdown>
+                    </div>
+                    <div class="field col-12">
+                        <label for="description">Description</label>
+                        <textarea id="description" formControlName="description" [rows]="3" [cols]="30" type="text"
+                            rows="4" class="inputfield w-full"></textarea>
+                        <small *ngIf="productForm.description.invalid && isSubmitted" class="p-error">Description is
+                            required</small>
+                    </div>
+                    <div class="field col-12">
+                        <label style="padding: 5px;" for="image">Image</label>
+                        <input type="file" accept="image/*" (change)="onImageUpload($event)" class="p-inputtext" />
+                        <small *ngIf="productForm.image.invalid && isSubmitted" class="p-error">Image is
+                            required</small>
+                        <div class="col-2 m-pt-2 pl-3">
+                            <img style="width: 120px; height: 120px;" [src]="imageSource" alt="" class="src">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </p-card>
+</div>
