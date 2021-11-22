@@ -30,7 +30,11 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {DropdownModule} from 'primeng/dropdown';
 import {EditorModule} from 'primeng/editor';
-
+import { AddUserComponent } from './pages/users/add-user/add-user.component';
+import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UsersService } from '@nownthenfrontend/users';
+import { TagModule } from 'primeng/tag';
+import {InputMaskModule} from 'primeng/inputmask';
 
 
 const primeModules = [
@@ -48,7 +52,9 @@ const primeModules = [
   ToggleButtonModule,
   InputSwitchModule,
   DropdownModule,
-  EditorModule
+  EditorModule,
+  TagModule,
+  InputMaskModule
 
 ];
 
@@ -64,6 +70,9 @@ const routes: Routes = [
       { path: 'products', component: ProductsListComponent },
       { path: 'products/add', component: AddProductComponent },
       { path: 'products/add/:id', component: AddProductComponent },
+      { path: 'users', component: UserListComponent },
+      { path: 'users/add', component: AddUserComponent },
+      { path: 'users/add/:id', component: AddUserComponent },
     ],
   },
 ];
@@ -78,6 +87,8 @@ const routes: Routes = [
     AddCategoryComponent,
     ProductsListComponent,
     AddProductComponent,
+    AddUserComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +99,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService],
+  providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
