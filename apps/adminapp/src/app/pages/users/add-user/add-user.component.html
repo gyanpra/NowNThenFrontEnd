@@ -1,0 +1,81 @@
+<p-toast></p-toast>
+<div class="admin-catogies">
+    <p-card [header]="editMode ? 'Edit User':'Create User'"
+        [subheader]="editMode ? 'Edit Existing Product':'Create a New User'">
+        <div class="grid mb-2">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <button pButton type="button" icon="pi pi-plus" [label]="editMode ? 'Update':'Add'"
+                            (click)="onSubmit()" class="p-button-outlined"></button>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <button pButton type="button" icon="pi pi-times" label="Cancel" routerLink="/users"
+                            class="p-button-info"></button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="card">
+            <form [formGroup]="form">
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label for="name">name</label>
+                        <input formControlName="name" id="name" type="text" placeholder="Enter Name" class="inputfield w-full">
+                        <small class="p-error" *ngIf="userForm.name.invalid&&isSubmitted">Name is
+                            required</small>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label for="email">Email</label>
+                        <input formControlName="email" id="email" type="email" placeholder="Enter Email" class="inputfield w-full">
+                        <small class="p-error" *ngIf="userForm.email.invalid&&isSubmitted"></small>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label for="hashedPassword">Password</label>
+                        <input formControlName="hashedPassword" id="hashedPassword" type="password" placeholder="Enter Password"
+                            class="inputfield w-full">
+                        <small class="p-error" *ngIf="userForm.hashedPassword.invalid&&isSubmitted">Password is
+                            required</small>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label for="phone">Phone</label>&nbsp;
+                        <p-inputMask formControlName="phone" mask="999999999" placeholder="999999999"></p-inputMask>
+                        <small class="p-error" *ngIf="userForm.phone.invalid&&isSubmitted">Phone is
+                            required</small>
+                    </div>
+
+                    <div class="field col-4">
+                        <label for="isAdmin">Mark Admin</label><br>
+                        <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                        <label for="state">State</label>
+                        <select formControlName="state" id="state" class="w-full inputfield" style="appearance: auto">
+                            <option>Bihar</option>
+                            <option>Maharashtra</option>
+                            <option>Delhi</option>
+                            <option>Odisha</option>
+                            <option>West Bengal</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Rajasthan</option>
+                            <option>Tamil Nadu</option>
+                        </select>
+                    </div>
+                    <div class="field col-12">
+                        <label  for="address">Address</label>
+                        <textarea formControlName="address" id="address" type="text" rows="4" class="inputfield w-full"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="city">City</label>
+                        <input formControlName="city" id="city" type="text" class="inputfield w-full">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="pincode">Pincode</label>
+                        <input formControlName="pincode" id="pincode" type="text" class="inputfield w-full">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </p-card>
+</div>
