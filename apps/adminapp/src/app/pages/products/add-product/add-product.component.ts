@@ -99,10 +99,7 @@ export class AddProductComponent implements OnInit {
       this._updateProduct(productFormData);
     }else{
       this._addProduct(productFormData);
-    }
-    
-
-    
+    } 
 
   }
 

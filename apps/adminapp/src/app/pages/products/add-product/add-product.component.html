@@ -54,6 +54,8 @@
                         <p-dropdown [options]="categories" formControlName="category" optionLabel="name"
                             optionValue="id" [filter]="true" filterBy="name" [showClear]="true"
                             placeholder="Select a Category&nbsp;&nbsp;&nbsp;&nbsp;"></p-dropdown>
+                        <small class="p-error" *ngIf="productForm.category.invalid&&isSubmitted">Category is
+                            required</small>
                     </div>
                     <div class="field col-12">
                         <label for="description">Description</label>
