@@ -1,0 +1,42 @@
+<p-toast></p-toast>
+<div class="admin-catogies">
+    <p-card [header]="editMode ? 'Edit Category':'Create Category'" [subheader]="editMode ? 'Edit Existing Category':'Create a New Category'">
+        <div class="grid mb-2">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <button pButton type="button" icon="pi pi-plus" [label]="editMode ? 'Update':'Add'" (click)="onSubmit()"
+                            class="p-button-outlined"></button>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <button pButton type="button" icon="pi pi-times" label="Cancel" routerLink="/categories"
+                            class="p-button-info"></button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="card">
+            <form [formGroup]="form">
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="name">Name</label>&nbsp;
+                        <input formControlName="name" id="name" type="text" class="inputfield w-full">
+                        <small class="p-error" *ngIf="categoryform.name.invalid&&isSubmitted">Name is required</small>
+                    </div>
+                    <div class="field col">
+                        <label for="icon">Icon</label>
+                        <input formControlName="icon" id="icon" type="text" class="inputfield w-full">
+                        <small class="p-error" *ngIf="categoryform.icon.invalid&&isSubmitted">Icon is required</small>
+                    </div>
+                    <div class="field col">
+                        <label for="color">color</label><br>
+                        <p-colorPicker formControlName="color" name="color" appendTo="body"></p-colorPicker>
+                        <p-dialog [contentStyle]="{'overflow':'visible'}">
+                        </p-dialog>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </p-card>
+</div>
