@@ -28,7 +28,7 @@ export class ProductsService {
     return this.http.post<Product>(this.productAPI, productData);
   }
 
-  deleteProduct(productid: string): Observable<any> {
+  deleteProduct(productid: string): Observable<Product> {
     return this.http.delete<Product>(`${this.productAPI}/${productid}`);
   }
 
@@ -36,5 +36,6 @@ export class ProductsService {
     return this.http.put<Product>(`${this.productAPI}/${productid}`, productData);
   }
   
+
 
 }

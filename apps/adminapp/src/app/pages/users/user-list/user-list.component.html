@@ -1,0 +1,66 @@
+<p-toast></p-toast>
+
+<div class="admin-catogies">
+    <p-card header="All Users" subheader="list of Users">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <button pButton type="button" icon="pi pi-plus" label="Add User" routerLink="add"
+                            class="p-button-outlined"></button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table [paginator]="true" [rows]="2" [value]="users" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="id">
+                                <p-sortIcon field="id"></p-sortIcon>ID
+                            </th>
+                            <th pSortableColumn="name">
+                                <p-sortIcon field="name"></p-sortIcon>Name
+                            </th>
+                            <th pSortableColumn="email">
+                                <p-sortIcon field="email"></p-sortIcon>Email
+                            </th>
+                            <th pSortableColumn="isAdmin">
+                                <p-sortIcon field="isAdmin"></p-sortIcon>Is Admin
+                            </th>
+                            <th pSortableColumn="state">
+                                <p-sortIcon field="state"></p-sortIcon>State
+                            </th>
+                            <th pSortableColumn="phone">
+                                <p-sortIcon field="phone"></p-sortIcon>phone
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td>{{user.id}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td><p-tag *ngIf="user.isAdmin" styleClass="p-mr-2" icon="pi pi-check" severity="success" value="Admin"></p-tag> 
+<p-tag *ngIf="!user.isAdmin" styleClass="p-mr-2" icon="pi pi-info-circle" severity="info" value="User"></p-tag></td>
+                            <td>{{user.state}}</td>
+                            <td>{{user.phone}}</td>
+                            
+                            <td><button (click)="editUser(user.id)" pButton type="button" label="Edit"
+                                class="p-button-warning mr-2"></button>
+                            <button (click)="deleteUser(user.id)" pButton type="button" label="Delete"
+                                class="p-button-danger"></button>
+                        </td>
+                            
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-card>
+</div>
+<p-confirmDialog [style]="{width: '60vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+
