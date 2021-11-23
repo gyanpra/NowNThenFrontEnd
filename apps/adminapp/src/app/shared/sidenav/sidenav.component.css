@@ -1,0 +1,8 @@
+a:hover {
+    background-color: var(--blue-800);
+  }
+
+  .logout:hover {
+    background-color: var(--pink-500);
+    
+  }
