@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -32,9 +32,12 @@ import {DropdownModule} from 'primeng/dropdown';
 import {EditorModule} from 'primeng/editor';
 import { AddUserComponent } from './pages/users/add-user/add-user.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
-import { UsersService } from '@nownthenfrontend/users';
+import { AuthguardGuard, JwtInterceptor, UsersModule, UsersService } from '@nownthenfrontend/users';
 import { TagModule } from 'primeng/tag';
 import {InputMaskModule} from 'primeng/inputmask';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 const primeModules = [
@@ -54,14 +57,15 @@ const primeModules = [
   DropdownModule,
   EditorModule,
   TagModule,
-  InputMaskModule
+  InputMaskModule,
+  FieldsetModule
 
 ];
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: MainComponent, canActivate: [AuthguardGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'categories', component: CategoriesListComponent },
@@ -73,6 +77,8 @@ const routes: Routes = [
       { path: 'users', component: UserListComponent },
       { path: 'users/add', component: AddUserComponent },
       { path: 'users/add/:id', component: AddUserComponent },
+      { path: 'orders', component: OrdersListComponent },
+      { path: 'orders/:id', component: OrderDetailComponent },
     ],
   },
 ];
@@ -89,6 +95,8 @@ const routes: Routes = [
     AddProductComponent,
     AddUserComponent,
     UserListComponent,
+    OrdersListComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,9 +105,11 @@ const routes: Routes = [
     ...primeModules,
     FormsModule,
     ReactiveFormsModule,
+    UsersModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService],
+  providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService,
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
