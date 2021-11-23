@@ -31,10 +31,10 @@
                         <small class="p-error" *ngIf="userForm.email.invalid&&isSubmitted"></small>
                     </div>
                     <div class="field col-12 md:col-4">
-                        <label for="hashedPassword">Password</label>
-                        <input formControlName="hashedPassword" id="hashedPassword" type="password" placeholder="Enter Password"
+                        <label for="password">Password</label>
+                        <input formControlName="password" id="password" type="password" placeholder="Enter Password"
                             class="inputfield w-full">
-                        <small class="p-error" *ngIf="userForm.hashedPassword.invalid&&isSubmitted">Password is
+                        <small class="p-error" *ngIf="userForm.password.invalid&&isSubmitted">Password is
                             required</small>
                     </div>
                     <div class="field col-12 md:col-4">

@@ -32,7 +32,7 @@ export class AddUserComponent implements OnInit {
   private _initUserForm(){
     this.form = this.formBuilder.group({
       name: ['',Validators.required],
-      hashedPassword: ['', Validators.required],
+      password: ['', Validators.required],
       email: ['',[Validators.required,Validators.email]],
       phone: ['',Validators.required],
       isAdmin: [false],
@@ -58,8 +58,8 @@ export class AddUserComponent implements OnInit {
           this.userForm.pincode.setValue(user.pincode);
           this.userForm.state.setValue(user.state);
           this.userForm.city.setValue(user.city);
-          this.userForm.hashedPassword.setValidators([]);
-          this.userForm.hashedPassword.updateValueAndValidity();
+          this.userForm.password.setValidators([]);
+          this.userForm.password.updateValueAndValidity();
         })
 
 
@@ -102,7 +102,7 @@ export class AddUserComponent implements OnInit {
       id: this.currentUserID,
       name: this.userForm.name.value,
       email: this.userForm.email.value,
-      hashedPassword: this.userForm.hashedPassword.value,
+      password: this.userForm.password.value,
       phone: this.userForm.phone.value,
       isAdmin: this.userForm.isAdmin.value,
       address: this.userForm.address.value,
