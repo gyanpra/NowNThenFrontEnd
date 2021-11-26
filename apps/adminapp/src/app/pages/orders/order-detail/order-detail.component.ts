@@ -72,6 +72,7 @@ export class OrderDetailComponent implements OnInit {
       });
 
       this.order = order;
+      this.selectedStatus = order.status;
     }
     );
   }
