@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MainComponent } from './shared/main/main.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
@@ -32,12 +31,13 @@ import {DropdownModule} from 'primeng/dropdown';
 import {EditorModule} from 'primeng/editor';
 import { AddUserComponent } from './pages/users/add-user/add-user.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
-import { AuthguardGuard, JwtInterceptor, UsersModule, UsersService } from '@nownthenfrontend/users';
+import {JwtInterceptor, UsersModule, UsersService } from '@nownthenfrontend/users';
 import { TagModule } from 'primeng/tag';
 import {InputMaskModule} from 'primeng/inputmask';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
 import {FieldsetModule} from 'primeng/fieldset';
+import { AppRoutingModule } from './app-routing.module';
 
 
 const primeModules = [
@@ -62,26 +62,7 @@ const primeModules = [
 
 ];
 
-const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent, canActivate: [AuthguardGuard],
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'categories', component: CategoriesListComponent },
-      { path: 'categories/add', component: AddCategoryComponent },
-      { path: 'categories/add/:id', component: AddCategoryComponent },
-      { path: 'products', component: ProductsListComponent },
-      { path: 'products/add', component: AddProductComponent },
-      { path: 'products/add/:id', component: AddProductComponent },
-      { path: 'users', component: UserListComponent },
-      { path: 'users/add', component: AddUserComponent },
-      { path: 'users/add/:id', component: AddUserComponent },
-      { path: 'orders', component: OrdersListComponent },
-      { path: 'orders/:id', component: OrderDetailComponent },
-    ],
-  },
-];
+
 
 @NgModule({
   declarations: [
@@ -106,7 +87,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     UsersModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+    AppRoutingModule
   ],
   providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService,
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
