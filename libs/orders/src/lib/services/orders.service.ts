@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Order } from '../models/order';
 import { OrderItem } from '../models/orderitem';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'environment/environment.prod';
 
 @Injectable({
@@ -34,6 +34,13 @@ export class OrdersService {
     return this.http.put<Order>(`${this.orderAPI}/${orderId}`, orderStatus);
   }
 
+  getTotalOrders(): Observable<number> {
+    return this.http.get<number>(`${this.orderAPI}/get/count`).pipe(map((objectValue: any) => objectValue.count));
+  }
+
+  getRevenue():Observable<number>{
+    return this.http.get<number>(`${this.orderAPI}/get/totalsales`).pipe(map((objectValue: any) => objectValue.totalsales));
+  }
 
 }
 
