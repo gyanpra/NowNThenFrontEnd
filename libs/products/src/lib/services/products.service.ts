@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/products';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'environment/environment.prod';
 
 
@@ -34,6 +34,10 @@ export class ProductsService {
 
   updateProduct(productData: FormData, productid: string, ): Observable<Product> {
     return this.http.put<Product>(`${this.productAPI}/${productid}`, productData);
+  }
+
+  getProductCount(): Observable<number> {
+    return this.http.get<number>(`${this.productAPI}/get/totalcount`).pipe(map((objectValue: any) => objectValue.count));
   }
   
 
