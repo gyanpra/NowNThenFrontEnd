@@ -1,1 +1,61 @@
-<p>Dashboard</p>
+<div class="admin-catogies" *ngIf="stats.length">
+    <p-card header="DashBoard" subheader="Important App Stats">
+        <div class="grid">
+            <div class="col-3">
+                <p-card styleClass="d-user">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-users" style="font-size: 4em; margin-bottom: 20px; margin-left: 10px;"></i><br> 
+                            <span routerLink="/users" class="name">All Users</span>
+                        </div>
+                        <div>
+                            <span class=number>{{stats[0]}}</span>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+
+            <div class="col-3">
+                <p-card styleClass="d-sales">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-wallet" style="font-size: 4em; margin-bottom: 20px; margin-left: 10px;"></i><br> 
+                            <span routerLink="/orders" class="name">Revenue</span>
+                        </div>
+                        <div>
+                            <span class=number>{{stats[3] |currency:"INR"}}</span>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+
+            <div class="col-3">
+                <p-card styleClass="d-products">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-tags" style="font-size: 4em; margin-bottom: 20px; margin-left: 10px;"></i><br> 
+                            <span routerLink="/products" class="name">All Items</span>
+                        </div>
+                        <div>
+                            <span class=number>{{stats[1]}}</span>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-shopping-bag" style="font-size: 4em; margin-bottom: 20px; margin-left: 10px;"></i><br> 
+                            <span routerLink="/orders" class="name">All orders</span>
+                        </div>
+                        <div>
+                            <span class=number>{{stats[2]}}</span>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </p-card>
+</div>
