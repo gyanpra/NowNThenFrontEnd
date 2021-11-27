@@ -79,5 +79,92 @@ a {
       padding: 15px;
   }
 
+  .d-item{
+      display: flex;
+      text-align: center;
+      color: white;
+      
+  }
+
+  .d-user{
+        display: flex;
+        text-align: center;
+        transition: transform .2s;
+        background-color: #FF9A8B;
+background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+
+  }
+  .d-user:hover{
+    transform: scale(1.1);
+  }
+
+  .d-sales{
+    display: flex;
+    text-align: center;
+    transition: transform .2s;
+    background-color: #74EBD5;
+background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+
+}
+.d-sales:hover{
+transform: scale(1.1);
+}
+
+.d-products{
+    display: flex;
+    text-align: center;
+    transition: transform .2s;
+    background-color: #52ACFF;
+    background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+    
+    
+}
+.d-products:hover{
+transform: scale(1.1);
+}
+
+.d-orders{
+    display: flex;
+    text-align: center;
+    transition: transform .2s;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    
+}
+.d-orders:hover{
+transform: scale(1.1);
+}
+
+.name{
+      font-size: 1.5em;
+      font-weight: bold;
+
+  }
+
+  .name:hover{
+    cursor: pointer;
+    color: black;
+  }
+
+  .number{
+
+      font-size: 1.5em;
+      transition: transform .2s;
+      float: right;
+      margin-left: 20px;
+  }
+
+  .number:hover{
+    transform: scale(1.2);
+    color: black;
+  }
+
+  .pi{
+    transition: transform .2s;
+  }
+
+  .pi:hover{
+    transform: scale(1.2);
+  }
 
 
