@@ -1,0 +1,20 @@
+.nav>li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 0%;
+}
+
+.nav>li>a{
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(131, 190, 96);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.nav>li>a:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
