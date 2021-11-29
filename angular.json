@@ -191,23 +191,23 @@
       "tags": []
     },
     "ui": {
+      "projectType": "library",
       "root": "libs/ui",
       "sourceRoot": "libs/ui/src",
-      "projectType": "library",
+      "prefix": "nownthenfrontend",
       "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/ui/**/*.ts"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         }
       },
@@ -232,7 +232,12 @@
               "apps/userapp/src/favicon.ico",
               "apps/userapp/src/assets"
             ],
-            "styles": ["apps/userapp/src/styles.css","node_modules/quill/dist/quill.core.css","node_modules/quill/dist/quill.snow.css","node_modules/quill/dist/quill.bubble.css"],
+            "styles": [
+              "apps/userapp/src/styles.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.bubble.css"
+            ],
             "scripts": ["node_modules/quill/dist/quill.js"]
           },
           "configurations": {

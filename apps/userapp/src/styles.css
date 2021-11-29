@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+/* @import '../../../styles/base.css';
+@import '../../../styles/userapp.css'; */
+
 @import '../../../styles/base.css';
-@import '../../../styles/userapp.css';
+
+@import '../../../node_modules/normalize.css/normalize.css';
+
+@import '~animate.css/animate.css';
+
+
+

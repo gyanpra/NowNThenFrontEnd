@@ -1,0 +1,23 @@
+/* .logo{
+
+}
+
+.search{
+
+}
+
+.nav{
+
+
+} */
+
+.actions{
+    padding-top: 20px;
+}
+.pi{
+    margin-right: 14px;
+    cursor: pointer;
+}
+.pi:hover{
+    color: rgb(131, 190, 96);
+}
