@@ -1,0 +1,9 @@
+<div class="featured-products">
+    <h3 class="text animate__animated animate__bounce">Hand-Crafted Designs</h3>
+    <div class="grid">
+        <div class="col-3" *ngFor="let product of featuredproducts">
+            <products-product-item [product]="product"></products-product-item>
+
+        </div>
+    </div>
+</div>
