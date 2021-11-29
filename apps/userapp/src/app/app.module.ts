@@ -12,6 +12,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import {ProductsModule} from '@nownthenfrontend/products';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
   {
@@ -34,6 +36,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
     ButtonModule,
     AccordionModule,
