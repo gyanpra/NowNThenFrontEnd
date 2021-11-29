@@ -40,6 +40,9 @@ export class ProductsService {
     return this.http.get<number>(`${this.productAPI}/get/totalcount`).pipe(map((objectValue: any) => objectValue.count));
   }
   
+  getFeaturedProducts(count:number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.productAPI}/get/featured/${count}`);
+  }
 
 
 }
