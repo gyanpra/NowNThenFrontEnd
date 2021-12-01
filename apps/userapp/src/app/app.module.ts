@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {UiModule} from '@nownthenfrontend/ui';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { NavmenuComponent } from './shared/navmenu/navmenu.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -22,14 +21,12 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomePageComponent,
   },
-  { path: 'products', component: ProductListComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    ProductListComponent,
     HeaderComponent,
     FooterComponent,
     NavmenuComponent
