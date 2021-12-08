@@ -1,0 +1,90 @@
+<div class="checkout-page">
+    <div>
+        <p-button label="Move To Cart" icon="pi pi-arrow-left" routerLink="/cart"></p-button>
+    </div>
+</div>
+
+<div class="grid checkout-form">
+    <div class="col-8">
+        <form [formGroup]="checkOutform">
+            <div class="fluid formgrid grid">
+                <div class="field col-4">
+                    <label for="name">name</label>
+                    <input formControlName="name" id="name" type="text" placeholder="Enter Name"
+                        class="inputfield w-full">
+                    <small class="p-error" *ngIf="outputForm.name.invalid&&isSubmitted">Name is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="email">Email</label>
+                    <input formControlName="email" id="email" type="email" placeholder="Enter Email"
+                        class="inputfield w-full">
+                    <small class="p-error" *ngIf="outputForm.email.invalid&&isSubmitted">Email is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="phone">Phone</label>
+                    <input formControlName="phone" id="phone" type="text" placeholder="Enter Phone"
+                        class="inputfield w-full">
+                    <small class="p-error" *ngIf="outputForm.phone.invalid&&isSubmitted">Phone is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="state">State</label>
+                    <select formControlName="state" id="state" class="w-full inputfield" style="appearance: auto">
+                        <option>Bihar</option>
+                        <option>Maharashtra</option>
+                        <option>Delhi</option>
+                        <option>Odisha</option>
+                        <option>West Bengal</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Uttar Pradesh</option>
+                        <option>Rajasthan</option>
+                        <option>Tamil Nadu</option>
+                    </select>
+                    <small class="p-error" *ngIf="outputForm.state.invalid&&isSubmitted">State is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="address">Address</label>
+                    <textarea formControlName="address" id="address" type="text" rows="4" class="inputfield w-full"></textarea>
+                    <small class="p-error" *ngIf="outputForm.address.invalid&&isSubmitted">Address is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="city">City</label>
+                    <input formControlName="city" id="city" type="text" class="inputfield w-full">
+                    <small class="p-error" *ngIf="outputForm.city.invalid&&isSubmitted">Address is
+                        required</small>
+                </div>
+                <div class="field col-4">
+                    <label for="pincode">Pincode</label>
+                    <input formControlName="pincode" id="pincode" type="text" class="inputfield w-full">
+                    <small class="p-error" *ngIf="outputForm.pincode.invalid&&isSubmitted">Pincode is
+                        required</small>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <orders-order-summary></orders-order-summary>
+        <div class="checkout-button">
+            <p-button label="Place Order" icon="pi" class="p-button-success" (onClick)="placeOrder()"></p-button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="field col-12 md:col-6">
+    <label for="pincode">Pincode</label>
+    <input formControlName="pincode" id="pincode" type="text" class="inputfield w-full">
+</div> -->
