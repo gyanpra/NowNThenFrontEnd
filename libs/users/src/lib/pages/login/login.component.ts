@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
       this.authError = false;
       this.localStorageService.setToken(user.token);
       this.router.navigate(['/']);
-      
     },
     (err: HttpErrorResponse)=>{
       this.authError = true;

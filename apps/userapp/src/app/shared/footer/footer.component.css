@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 
 footer { 
   box-sizing: border-box;
@@ -32,7 +34,6 @@ hr {
   border-top: 0.1rem ridge rgba(46, 48, 49, 0.596);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
 
 .site-logo {
   float: left;
@@ -106,7 +107,7 @@ hr {
   padding: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+
 
 .site-links span{
   font-family: 'Gruppo', cursive;
