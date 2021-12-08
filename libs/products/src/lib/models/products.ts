@@ -12,6 +12,6 @@ export class Product{
     rating?: number;
     stock?: number;
     category?: Category;
-    price?: number;
+    price?: any;
     brand?: string;
 }
