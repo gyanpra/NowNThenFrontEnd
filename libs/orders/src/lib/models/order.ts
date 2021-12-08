@@ -11,6 +11,6 @@ export class Order {
     phone?: string;
     status?: number;
     totalPrice?: number;
-    user?: any;
+    user?: string;
     dateOrdered?: Date = new Date();
 }

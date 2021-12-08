@@ -11,9 +11,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import {ProductsModule} from '@nownthenfrontend/products';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {OrdersModule} from '@nownthenfrontend/orders';
-import { UsersModule } from '@nownthenfrontend/users';
+import { JwtInterceptor, UsersModule } from '@nownthenfrontend/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 
 const routes: Routes = [
@@ -43,9 +45,13 @@ const routes: Routes = [
     ProductsModule,
     UiModule,
     OrdersModule,
-    UsersModule
+    UsersModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

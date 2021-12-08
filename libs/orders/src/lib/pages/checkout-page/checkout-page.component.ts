@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cart, Order, OrderItem, OrdersService } from '@nownthenfrontend/orders';
-import { UsersService } from '@nownthenfrontend/users';
+import { User, UsersService } from '@nownthenfrontend/users';
+import { take } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -17,12 +18,13 @@ export class CheckoutPageComponent implements OnInit {
   checkOutform!: FormGroup;
   isSubmitted = false;
   orderItems : OrderItem[] = [];
-  userId!: "619cb899ac0b01ffc9c9bd6c";
+  userId: string='61b113627a8fbf5cd3e279d5';
 
 
   ngOnInit(): void {
     this._initUserForm();
     this._getCartItems();
+    // this._autofilledUserDetails();
   }
 
   private _initUserForm(){
@@ -51,9 +53,9 @@ export class CheckoutPageComponent implements OnInit {
       phone: this.outputForm.phone.value,
       status: 0,
       user: this.userId,
-      // dateOrdered: `${Date.now()}`,
     }
 
+    console.log(this.userId)
     this.orderService.addOrder(order).subscribe(res => {
       this.router.navigate(['/thank-you']);
       this.cartService.clearCart();
@@ -72,6 +74,22 @@ export class CheckoutPageComponent implements OnInit {
     });
     console.log(this.orderItems);
   }
+
+  // private _autofilledUserDetails(){
+  //   this.usersService.observeCurrentUser().pipe().subscribe((user:User) => {
+  //     this.userId = user.id;
+  //     this.outputForm.name.setValue(user.name);
+  //     this.outputForm.email.setValue(user.email);
+  //     this.outputForm.phone.setValue(user.phone);
+  //     this.outputForm.state.setValue(user.state);
+  //     this.outputForm.address.setValue(user.address);
+  //     this.outputForm.city.setValue(user.city);
+  //     this.outputForm.pincode.setValue(user.pincode);
+
+
+  //   })
+  //   console.log(this.outputForm.name);
+  // }
   
 
   get outputForm() {

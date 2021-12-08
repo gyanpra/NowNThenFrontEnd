@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/users';
 import { map, Observable } from 'rxjs';
 import { environment } from 'environment/environment.prod';
+import { UsersFacade } from '../state/users.facade';
 
 
 @Injectable({
@@ -12,9 +13,8 @@ export class UsersService {
 
   userAPI = environment.apiURL + 'users';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private usersFacade: UsersFacade) { }
 
-  }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userAPI);
@@ -38,6 +38,22 @@ export class UsersService {
 
   getUserCount(): Observable<number> {
     return this.http.get<number>(`${this.userAPI}/get/totalcount`).pipe(map((objectValue: any) => objectValue.count));
+  }
+
+  //for ngrg init app session
+  initAppSession() {
+    this.usersFacade.buildUserSession();
+  }
+
+  //observer current User
+  observeCurrentUser(): Observable<User> {
+    console.log(this.observeCurrentUser);
+    return this.usersFacade.currentUser$;
+  }
+
+  //observer current User if authenticated
+  isCurrentUserAuthenticated(): Observable<boolean> {
+    return this.usersFacade.isAuthenticated$;
   }
   
 

@@ -38,6 +38,8 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 
 const primeModules = [
@@ -87,7 +89,9 @@ const primeModules = [
     FormsModule,
     ReactiveFormsModule,
     UsersModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService,
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

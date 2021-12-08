@@ -17,10 +17,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { AuthguardGuard } from '@nownthenfrontend/users';
+import { UserauthGuard } from '@nownthenfrontend/users';
 
 export const ordersRoutes: Route[] = [
   { path: 'cart', component: CartPageComponent },
-  { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthguardGuard] },
+  { path: 'checkout', component: CheckoutPageComponent, canActivate: [UserauthGuard] },
   { path: 'thank-you', component: ThankYouComponent }
 ];
 
