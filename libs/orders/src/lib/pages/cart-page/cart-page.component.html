@@ -1,0 +1,45 @@
+<div class="cart-page">
+    <div class="grid">
+        <div class="col-8">
+            <div>
+                <p-button label="Back To Home" icon="pi pi-arrow-left" class="btn-primary" routerLink="/" ></p-button>
+            </div>
+            <div>
+                <h2>Your Cart has {{cartCount}} Items.</h2>
+
+            </div>
+            <div class="cart-shipping p-mb-5">
+                Delivery Time is 2-3 days. Free Shipping.
+            </div>
+            <div class="cart-item" *ngFor="let cartitem of CartItemsDetails">
+                <div class="grid p-fluid">
+                    <div class="col-2 cart-item-image">
+                        <img [src]="cartitem.product.image" alt="cartitem" />
+                    </div>
+                    <div class="col-7">
+                        <div class="cart-item-name">{{cartitem.product.name}}</div>
+                        <div class="cart-item-price">{{cartitem.product.price | currency: 'INR'}}</div>
+                        <div class="cart-remove-button">
+                            <p-button class="btn btn-danger" icon="pi pi-trash" (click)="removeItem(cartitem)"></p-button>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="p-field cart-item-quantity">
+                            <p-inputNumber mode="decimal" [(ngModel)]="cartitem.quantity" (onInput)="updateCartItemQuantity($event, cartitem)" [showButtons]="true" inputId="cartitem.product.id" [min]="1" [max]="100">
+                            </p-inputNumber>
+                        </div>
+                        <div class="cart-item-subtotal">
+                            SubTotal : 
+                            <span class="cart-item-subtotal-value">{{cartitem.product.price * cartitem.quantity | currency: "INR"}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-4">
+            <orders-order-summary></orders-order-summary>
+        </div>
+    </div>
+</div>
