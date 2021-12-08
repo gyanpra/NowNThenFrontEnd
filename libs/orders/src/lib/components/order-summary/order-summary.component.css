@@ -1,0 +1,32 @@
+.order-summary{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 100px;
+}
+.summary-price{
+    display:flex;
+    margin: 15px 0;
+}
+
+span{
+    display: block;
+    width: 60%;
+    color: green;
+}
+
+span:last-child{
+    color: tomato;
+    width: 20%;
+    font-weight: 1000;
+}
+
+h2{
+    text-align: center;
+}
+
+.checkout-button{
+    margin-top: 20px;
+    text-align: center;
+}
+

@@ -1,0 +1,22 @@
+<div class="order-summary">
+    <h2>Order Summary</h2>
+    <div class="summary-price">
+        <span>Item Price</span>
+        <span>{{ totalPrice | currency: "INR"}}</span>
+    </div>
+    <div class="summary-price">
+        <span>Shipping Charges</span>
+        <span class="free">Free</span>
+    </div>
+    <div class="to-checkout">
+        <div class="summary-price">
+            <span>Total Price</span>
+            <span>{{totalPrice | currency: "INR"}}</span>
+        </div>
+        <div class="checkout-button">
+            <p-button label="Checkout" class="btn-checkout"></p-button>
+        </div>
+    </div>
+</div>
+<!-- (click)="checkout()" -->
+<!-- totalPrice -->
