@@ -13,8 +13,8 @@
             <span>Total Price</span>
             <span>{{totalPrice | currency: "INR"}}</span>
         </div>
-        <div class="checkout-button">
-            <p-button label="Checkout" class="btn-checkout"></p-button>
+        <div class="checkout-button" *ngIf="!isCheckOut">
+            <p-button label="Checkout" (onClick)="goToCheckout()" class="btn-checkout"></p-button>
         </div>
     </div>
 </div>
