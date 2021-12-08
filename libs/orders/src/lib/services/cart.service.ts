@@ -18,6 +18,7 @@ export class CartService {
     const cart: Cart = this.getCart();
     if(!cart){
       const initialCart = {
+        // @ts-ignore
         items: []
       } 
     const initialCartJson = JSON.stringify(initialCart);
@@ -69,6 +70,15 @@ export class CartService {
     const cart = this.getCart();
     const cartItemIndex = cart.items.findIndex((item) => item.productId === productId);
     cart.items.splice(cartItemIndex, 1);
+    const CartJson = JSON.stringify(cart);
+    localStorage.setItem(CART_KEY, CartJson);
+    this.cart$.next(cart);
+    return cart;
+  }
+
+  clearCart(): Cart {
+    const cart = this.getCart();
+    cart.items = [];
     const CartJson = JSON.stringify(cart);
     localStorage.setItem(CART_KEY, CartJson);
     this.cart$.next(cart);
