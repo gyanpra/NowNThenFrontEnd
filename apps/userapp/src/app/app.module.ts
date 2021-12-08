@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import {ProductsModule} from '@nownthenfrontend/products';
 import { HttpClientModule } from '@angular/common/http';
+import {OrdersModule} from '@nownthenfrontend/orders';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
     AccordionModule,
     BrowserAnimationsModule,
     ProductsModule,
-    UiModule
+    UiModule,
+    OrdersModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
