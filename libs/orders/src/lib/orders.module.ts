@@ -10,20 +10,28 @@ import {ToastModule} from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import {InputMaskModule} from 'primeng/inputmask';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { AuthguardGuard } from '@nownthenfrontend/users';
 
 export const ordersRoutes: Route[] = [
-  { path: 'cart', component: CartPageComponent }
+  { path: 'cart', component: CartPageComponent },
+  { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthguardGuard] },
+  { path: 'thank-you', component: ThankYouComponent }
 ];
 
 @NgModule({
-  imports: [CommonModule, BadgeModule,ToastModule,InputNumberModule, ButtonModule, FormsModule, RouterModule.forChild(ordersRoutes)],
+  imports: [CommonModule, BadgeModule,ToastModule,InputNumberModule,ReactiveFormsModule, ButtonModule, FormsModule, RouterModule.forChild(ordersRoutes),DropdownModule,InputTextModule,InputMaskModule],
   declarations: [
     CartIconComponent,
     CartPageComponent,
     OrderSummaryComponent,
     CheckoutPageComponent,
+    ThankYouComponent,
 
 
   ],
@@ -31,7 +39,8 @@ export const ordersRoutes: Route[] = [
     CartIconComponent,
     CartPageComponent,
     OrderSummaryComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    ThankYouComponent
   ],
   providers: [
     MessageService]
