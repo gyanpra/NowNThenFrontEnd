@@ -37,7 +37,7 @@ const usersReducer = createReducer(
   on(UsersActions.buildUserSessionFailure, (state,action) => ({  //updating the state based on the failed action
     ...state,
     user: null as any,
-    isAuthenticated: true
+    isAuthenticated: false
   }))
 
 );

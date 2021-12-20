@@ -40,6 +40,7 @@ import {FieldsetModule} from 'primeng/fieldset';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { NgxStripeModule } from 'ngx-stripe';
 
 
 const primeModules = [
@@ -91,7 +92,9 @@ const primeModules = [
     UsersModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    NgxStripeModule.forRoot('pk_test_51K4Yu8SDnpUE4Uz9OcyRx074bfEgzs7V6td5AjJ7uQU7ervPYmryG6q94Zrj9CK0maV8FfMhPPKMuyrNnkwKEmTL00jePi1L23'),
+    
   ],
   providers: [CategoriesService, MessageService,   ConfirmationService, ProductsService, UsersService,
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

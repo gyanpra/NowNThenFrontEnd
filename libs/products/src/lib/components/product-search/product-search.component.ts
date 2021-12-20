@@ -12,4 +12,5 @@ export class ProductSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

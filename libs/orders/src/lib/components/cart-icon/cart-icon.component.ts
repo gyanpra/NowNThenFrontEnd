@@ -20,7 +20,7 @@ export class CartIconComponent implements OnInit {
       console.log("cart icon component: ", cart);
 
       //if cartcount is there show that else 0.
-      this.cartCount = cart?.items.length??0;
+      this.cartCount = cart?.items?.length??0;
       this.cartCountString = this.cartCount.toString();
       
     });

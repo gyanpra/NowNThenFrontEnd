@@ -32,6 +32,7 @@ export class CartService {
   //getting the cartItems from the local storage as a Cart object.
   getCart(): Cart {
     let cartJsonString: string = localStorage.getItem(CART_KEY) || '{}';
+    console.log(cartJsonString);
     const cart :Cart =  JSON.parse(cartJsonString);
     return cart;   //returning the cart object
   }
@@ -44,7 +45,7 @@ export class CartService {
 
   setCartItem(cartItem: CartItem, updateCartItem?:boolean): Cart{
     const cart = this.getCart();
-    const cartItemExists = cart.items.find((item) => item.productId === cartItem.productId);
+    const cartItemExists = cart.items.find((items) => items.productId === cartItem.productId);
     if (cartItemExists) {
       cart.items.map((item) => {
         if (item.productId === cartItem.productId) {

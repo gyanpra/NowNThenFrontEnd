@@ -40,14 +40,14 @@ export class UsersService {
     return this.http.get<number>(`${this.userAPI}/get/totalcount`).pipe(map((objectValue: any) => objectValue.count));
   }
 
-  //for ngrg init app session
+
+  //for ngrx init app session
   initAppSession() {
     this.usersFacade.buildUserSession();
   }
 
   //observer current User
   observeCurrentUser(): Observable<User> {
-    console.log(this.observeCurrentUser);
     return this.usersFacade.currentUser$;
   }
 

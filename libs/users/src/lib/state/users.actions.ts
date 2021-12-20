@@ -7,8 +7,8 @@ export const buildUserSession = createAction('[Users] Build User Session');
 
 
 export const buildUserSessionSuccess = createAction(
-  '[Users/API] Build Users Session Success',
+  '[Users] Build Users Session Success',
   props<{ user: User }>()
 );
 
-export const buildUserSessionFailure = createAction('[Users/API] Build Users Session Failure');
+export const buildUserSessionFailure = createAction('[Users] Build Users Session Failure');

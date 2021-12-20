@@ -30,7 +30,7 @@ export class OrderSummaryComponent implements OnInit {
     this.cartService.cart$.subscribe((cart) => {
       this.totalPrice = 0;
       if (cart) {
-        cart.items.map((item) => {
+        cart.items?.map((item) => {
           this.productsService
             .getProduct(item.productId)
             .subscribe((product) => {

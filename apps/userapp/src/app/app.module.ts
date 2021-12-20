@@ -16,6 +16,7 @@ import {OrdersModule} from '@nownthenfrontend/orders';
 import { JwtInterceptor, UsersModule } from '@nownthenfrontend/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+// import { NgxStripeModule } from 'ngx-stripe';
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
     OrdersModule,
     UsersModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    // NgxStripeModule.forRoot('pk_test_51K4Yu8SDnpUE4Uz9OcyRx074bfEgzs7V6td5AjJ7uQU7ervPYmryG6q94Zrj9CK0maV8FfMhPPKMuyrNnkwKEmTL00jePi1L23')
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

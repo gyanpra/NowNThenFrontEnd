@@ -39,7 +39,7 @@ export class LocalstorageService {
     if (token) {
       const DecodedToken = JSON.parse(atob(token.split('.')[1]));
       if(DecodedToken){
-        return DecodedToken.userId;
+        return DecodedToken._id;
       }
       else{
         return null;

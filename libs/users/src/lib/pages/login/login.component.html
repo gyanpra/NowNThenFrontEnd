@@ -1,4 +1,4 @@
-
+<!-- 
   <div id="container">
     <div id="left">
       <h1 id="welcome">Welcome</h1>
@@ -12,7 +12,7 @@
     </div>
     <div id="right">
       <h1 id="login">LogIn</h1><br>
-      <form [formGroup]="loginFormGroup">
+      <form [formGroup]="loginFormGroup" class="forms">
         <input formControlName="email" type="email" id="email" class="client-info">
         <label for="email">Email <small *ngIf="loginForm.email.invalid&&isSubmitted">is Required </small></label>
        
@@ -22,8 +22,40 @@
         <div *ngIf="isSubmitted&&authError" style="padding-left: 130px;"><small class=p-error>{{AuthMessage}}</small></div>
       </form>
 
-      <!-- <button class="social" id="facebook">connect with facebook</button> -->
       <button class="socials" id="google">connect with google</button>
     </div>
-  </div>
+  </div> -->
+<div class="body">
+  <div class="main">
+    <div class="login-box">
+        <div class="text-login">
+        <p>Login</p>
+        <span>Use your credentials to log in.</span>
+        </div>
+        <div class="login-form">
+          <form [formGroup]="loginFormGroup" class="forms">
+                <input class="form-control" formControlName="email" type="text" placeholder="Email">
+                <label for="email" class="labels"><small *ngIf="loginForm.email.invalid&&isSubmitted">Email is Required </small></label>
+                <input class="form-control" formControlName="password" type="password" placeholder="Password">
+                <label for="password" class="labels"><small *ngIf="loginForm.password.invalid&&isSubmitted">Password is Required </small></label>
+                <input (click)="onSubmit()" class="form-enter" type="submit">
+                <div class="labels" *ngIf="isSubmitted&&authError"><small class="p-error" class="labels">{{AuthMessage}}</small></div>
+            </form>
+            <!-- <hr>
+            <div class="social-login">
+                <p>Or use your social</p>
+                <div class="social-links">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+</div>
+  
+
+  
+  
   

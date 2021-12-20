@@ -6,7 +6,7 @@ import * as UsersSelectors from './users.selectors';
 @Injectable()
 export class UsersFacade {
 
-  currentUser$ = this.store.pipe(select(UsersSelectors.getUsers));;
+  currentUser$ = this.store.pipe(select(UsersSelectors.getUsers));
   isAuthenticated$ = this.store.pipe(select(UsersSelectors.getUserIsAuthenticated));
 
 
@@ -15,5 +15,6 @@ export class UsersFacade {
 
   buildUserSession() {
     this.store.dispatch(UsersActions.buildUserSession());
+
   }
 }

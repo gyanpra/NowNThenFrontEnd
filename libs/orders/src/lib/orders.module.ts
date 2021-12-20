@@ -18,6 +18,8 @@ import {InputMaskModule} from 'primeng/inputmask';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { AuthguardGuard } from '@nownthenfrontend/users';
 import { UserauthGuard } from '@nownthenfrontend/users';
+// import { CartService } from '../../services/cart.service';
+// import {StripeService} from 'ngx-stripe';
 
 export const ordersRoutes: Route[] = [
   { path: 'cart', component: CartPageComponent },
@@ -41,10 +43,13 @@ export const ordersRoutes: Route[] = [
     CartPageComponent,
     OrderSummaryComponent,
     CheckoutPageComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    
+   
   ],
   providers: [
-    MessageService]
+    MessageService
+  ]
 })
 export class OrdersModule {
   

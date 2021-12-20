@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;
   isSubmitted: boolean=false;
   authError: boolean = false;
-  AuthMessage='Email or Password is Wrong';
+  AuthMessage='Wrong Credentials';
 
   constructor(private formBuilder:FormBuilder, private auth: AuthService, private localStorageService: LocalstorageService, private router: Router) { }
 
@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
       if(err.status !=401){
         this.AuthMessage = 'Something went wrong';
       }
+      
     })
 
   }
